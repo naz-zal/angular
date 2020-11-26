@@ -1,0 +1,28 @@
+<div class="container" 
+  fxLayout="column" 
+  fxLayoutGap="10px">
+  <div fxFlex>
+    <div>
+      <h3>Menu</h3>
+      <hr>
+    </div>
+  </div>
+  
+  <div fxFlex *ngIf="dishes" [@expand]>
+  <md-grid-list cols="2" rowHeight="200px">
+    <md-grid-tile *ngFor="let food of dishes" [routerLink]="['/dishdetail', food.id]" appHighlight>
+      <img height="200px"  src="{{BaseURL + food.image}}" alt={{food.name}}>
+      <md-grid-tile-footer>
+      <h1 md-line> {{food.name | uppercase}}</h1>
+      </md-grid-tile-footer>
+    </md-grid-tile>
+  </md-grid-list>
+  </div>
+  <div [hidden]="dishes || errmess">
+    <md-spinner></md-spinner> <h4> Loading... </h4>
+  </div>
+  <div *ngIf = "errmess">
+    <h2>Error</h2>
+    <h4>{{errmess}}</h4>
+  </div>
+</div>

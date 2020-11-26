@@ -1,0 +1,59 @@
+<div class="container"
+fxLayout="row"
+fxLayout.sm="column"
+fxLayout.xs="column"
+fxLayoutAlign.gt-md="space-around center"
+fxLayoutGap="10px">
+
+<md-card *ngIf="food" fxFlex [@expand]>
+<md-card-header>
+<div md-card-avatar></div>
+<md-card-title>
+ <h3>{{food.name | uppercase}}</h3>
+</md-card-title>
+</md-card-header>
+<img md-card-image src="{{BaseURL + food.image}}" alt={{food.name}}>
+<md-card-content>
+<p>{{food.description}}
+</p>
+</md-card-content>
+</md-card>
+<div [hidden]="food">
+    <md-spinner></md-spinner><h4>Loading...</h4>
+</div>
+
+<md-card *ngIf="promotion" fxFlex [@expand]>
+<md-card-header>
+<div md-card-avatar></div>
+<md-card-title>
+ <h3>{{promotion.name | uppercase}}</h3>
+</md-card-title>
+</md-card-header>
+<img md-card-image src="{{BaseURL + promotion.image}}" alt={{promotion.name}}>
+<md-card-content>
+<p>{{promotion.description}}
+</p>
+</md-card-content>
+</md-card>
+<div [hidden]="promotion">
+        <md-spinner></md-spinner><h4>Loading...</h4>
+    </div>
+
+<md-card *ngIf="leader" fxFlex [@expand]>
+<md-card-header>
+<div md-card-avatar></div>
+<md-card-title>
+    <h3>{{leader.name | uppercase}}</h3>
+</md-card-title>
+</md-card-header>
+<img md-card-image src="{{BaseURL + leader.image}}" alt={{leader.name}}>
+<md-card-content>
+    <p>{{leader.designation}}</p>
+    <p>{{leader.description}}</p>
+</md-card-content>
+</md-card>
+<div [hidden]="leader">
+        <md-spinner></md-spinner><h4>Loading...</h4>
+    </div>
+
+</div>
